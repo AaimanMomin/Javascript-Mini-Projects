@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+p { text-align: center;font-size: 50px; margin-top: 0px; color: crimson; }
+</style>
+</head>
+<body>
+<h1 style="color: darkblue; "><u>Stop Watch</u></h1>
+<p id="demo"></p>
+<button  onclick="clearInterval(x)">Stop</button>
+<button  onclick="setInterval(reset(), 1000)" >Reset</button>
+<script>
+// Set the date we're counting down to
+var d1= new Date();
+var d2= new Date(d1);  
+var countUp =d2.setTime(d1.getTime()-d1.getTime());
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+  for (var i=0; i<10;i++){
+    
+    countUp=countUp+100;
+  };
+
+  var days = Math.floor(countUp / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((countUp % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((countUp% (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((countUp % (1000 * 60)) / 1000);
+    
+   // Output the result in an element with id="demo"
+   document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+    
+}, 1000);
+
+
+function reset(){
+  var d1= new Date();
+var d2= new Date(d1);  
+var countUp =d2.setTime(d1.getTime()-d1.getTime());
+ 
+
+  var days = Math.floor(countUp / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((countUp % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((countUp% (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((countUp % (1000 * 60)) / 1000);
+    
+   // Output the result in an element with id="demo"
+   document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+    
+}
+
+</script>
+
+</body>
+</html>
